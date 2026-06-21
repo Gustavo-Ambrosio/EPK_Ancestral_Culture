@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ancestral Culture Live — Electronic Press Kit</title>
+<meta name="description" content="Ancestral Culture Live — Darkpsy, Forest Psytrance & Experimental. Live act idealizado por Gustavo Ambrosio. EPK oficial, booking e catálogo.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Ancestral Culture Live — EPK">
+<meta property="og:description" content="Som de ritual. Som de viagem. Do começo ao fim.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --void:#07040d;
+    --void-2:#0d0818;
+    --surface:#120c22;
+    --surface-2:#1a1230;
+    --line: rgba(180,150,255,0.14);
+
+    --violet:#8b3bf5;
+    --violet-deep:#5b1fb8;
+    --blue:#3b6df0;
+    --blue-deep:#1d2e8f;
+    --magenta:#e0227a;
+    --crimson:#c81f3f;
+
+    --ink:#f3eefc;
+    --ink-dim:#a99dc9;
+    --ink-faint:#6a5d8c;
+
+    --font-display:'Cinzel', serif;
+    --font-body:'Space Grotesk', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--void);
+    color:var(--ink);
+    font-family:var(--font-body);
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ambient ritual texture */
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 600px at 12% -5%, rgba(139,59,245,0.22), transparent 60%),
+      radial-gradient(ellipse 800px 700px at 90% 15%, rgba(59,109,240,0.18), transparent 55%),
+      radial-gradient(ellipse 700px 500px at 50% 100%, rgba(224,34,122,0.14), transparent 60%);
+  }
+
+  .noise{
+    position:fixed; inset:0; z-index:1; pointer-events:none; opacity:0.035; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  section, header, footer{position:relative; z-index:2;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  ::selection{background:var(--magenta); color:var(--void);}
+
+  a{color:inherit; text-decoration:none;}
+
+  .eyebrow{
+    font-family:var(--font-body);
+    font-size:12.5px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:28px; height:1px;
+    background:linear-gradient(90deg, var(--magenta), transparent);
+  }
+
+  h1,h2,h3{font-family:var(--font-display); font-weight:700; letter-spacing:0.01em;}
+
+  /* ============ NAV ============ */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    backdrop-filter:blur(14px);
+    background:linear-gradient(180deg, rgba(7,4,13,0.85), rgba(7,4,13,0));
+    transition:background .3s ease, border-color .3s ease;
+    border-bottom:1px solid transparent;
+  }
+  nav.scrolled{ background:rgba(7,4,13,0.82); border-bottom:1px solid var(--line); }
+  nav img{height:30px; display:block;}
+  nav .links{display:flex; gap:34px; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;}
+  nav .links a{color:var(--ink-dim); transition:color .25s ease; position:relative;}
+  nav .links a:hover, nav .links a:focus-visible{color:var(--ink);}
+  nav .links a::after{
+    content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px;
+    background:var(--magenta); transition:width .25s ease;
+  }
+  nav .links a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--line); padding:9px 18px; border-radius:2px;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    transition:all .25s ease;
+  }
+  .nav-cta:hover{border-color:var(--magenta); background:rgba(224,34,122,0.08);}
+  .nav-toggle{display:none;}
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height:100svh;
+    display:flex; align-items:flex-end;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('assets/hero.jpg');
+    background-size:cover; background-position:50% 28%;
+    filter:saturate(0.85) contrast(1.05);
+    transform:scale(1.04);
+  }
+  .hero-bg::after{ content:''; }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(7,4,13,0.55) 0%, rgba(7,4,13,0.25) 30%, rgba(7,4,13,0.55) 65%, var(--void) 100%),
+      linear-gradient(100deg, rgba(7,4,13,0.75) 0%, rgba(7,4,13,0.15) 45%, rgba(91,31,184,0.25) 100%);
+  }
+  .hero-rune{
+    position:absolute; top:8%; right:6%; width:240px; height:240px;
+    opacity:0.5; filter:drop-shadow(0 0 40px rgba(139,59,245,0.45));
+    animation:spin 60s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .hero-content{
+    position:relative; z-index:3;
+    width:100%;
+    padding:0 32px 84px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .hero-tagline-eyebrow{
+    font-size:12.5px; letter-spacing:0.36em; text-transform:uppercase;
+    color:var(--ink-dim); margin-bottom:22px; display:flex; align-items:center; gap:14px;
+  }
+  .hero-tagline-eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--magenta); box-shadow:0 0 12px var(--magenta);}
+
+  .hero h1{
+    font-size:clamp(48px, 9vw, 118px);
+    line-height:0.95;
+    text-transform:uppercase;
+    background:linear-gradient(100deg, #fff 10%, #d9c8ff 45%, #b89bff 65%, #f0a8d2 90%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    text-shadow:0 0 60px rgba(139,59,245,0.25);
+  }
+  .hero h1 span{display:block;}
+
+  .hero-sub{
+    margin-top:26px; max-width:560px;
+    font-size:17px; line-height:1.65; color:var(--ink-dim);
+    font-weight:400;
+  }
+
+  .hero-genres{
+    margin-top:30px; display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .pill{
+    font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:7px 14px; border:1px solid var(--line); border-radius:30px;
+    color:var(--ink-dim); background:rgba(255,255,255,0.02);
+  }
+
+  .hero-actions{ margin-top:42px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 30px; font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+    border-radius:2px; font-weight:600; transition:all .3s cubic-bezier(.2,.8,.2,1);
+    cursor:pointer; border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(100deg, var(--violet), var(--magenta));
+    color:#fff; box-shadow:0 8px 30px -8px rgba(139,59,245,0.6);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 36px -8px rgba(224,34,122,0.55); }
+  .btn-ghost{
+    border-color:var(--line); color:var(--ink);
+    background:rgba(255,255,255,0.02);
+  }
+  .btn-ghost:hover{ border-color:var(--blue); background:rgba(59,109,240,0.1); }
+
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    z-index:3; display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  .scroll-cue .line{width:1px; height:38px; background:linear-gradient(180deg, var(--ink-faint), transparent); animation:pulse-line 2s ease-in-out infinite;}
+  @keyframes pulse-line{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
+
+  /* ============ SECTION GENERIC ============ */
+  section{ padding:130px 0; }
+  .section-head{ max-width:680px; margin-bottom:64px; }
+  .section-head h2{ font-size:clamp(32px, 4.4vw, 52px); line-height:1.08; text-transform:uppercase; color:var(--ink); }
+  .section-head h2 em{ font-style:normal; color:transparent; -webkit-text-stroke:1px var(--ink-dim); }
+  .section-head p{ margin-top:18px; color:var(--ink-dim); font-size:16px; line-height:1.7; max-width:560px; }
+
+  /* divider rune */
+  .divider{
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    padding:0; margin:0;
+  }
+  .divider .l{ flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--line)); }
+  .divider .r{ flex:1; height:1px; background:linear-gradient(90deg, var(--line), transparent); }
+  .divider svg{ flex-shrink:0; opacity:.6; }
+
+  /* ============ BIO ============ */
+  .bio{ background:var(--void-2); }
+  .bio-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:70px; align-items:start;
+  }
+  .bio-text p{ color:var(--ink-dim); font-size:16.5px; line-height:1.85; margin-bottom:22px; }
+  .bio-text strong{ color:var(--ink); font-weight:600; }
+  .bio-quote{
+    margin-top:36px; padding:28px 30px; border-left:2px solid var(--magenta);
+    background:linear-gradient(90deg, rgba(224,34,122,0.08), transparent);
+    font-family:var(--font-display); font-size:19px; line-height:1.5; color:var(--ink);
+  }
+
+  .stats{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:8px; }
+  .stat-card{
+    border:1px solid var(--line); padding:26px 24px; border-radius:4px;
+    background:rgba(255,255,255,0.015);
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .stat-card:hover{ border-color:var(--violet); transform:translateY(-3px); }
+  .stat-card .num{ font-family:var(--font-display); font-size:30px; color:var(--ink); display:block; }
+  .stat-card .label{ font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:8px; display:block; }
+
+  .photo-frame{
+    position:relative; border-radius:4px; overflow:hidden; aspect-ratio:4/5;
+    border:1px solid var(--line);
+  }
+  .photo-frame img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(0.15) contrast(1.05); }
+  .photo-frame::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(200deg, rgba(91,31,184,0.35), transparent 50%);
+    mix-blend-mode:overlay;
+  }
+
+  /* ============ SOUND IDENTITY ============ */
+  .identity{ background:var(--void); }
+  .identity-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:60px; }
+  .id-col h3{
+    font-size:13px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:24px; font-family:var(--font-body); font-weight:600;
+  }
+  .feature-list{ list-style:none; }
+  .feature-list li{
+    padding:16px 0; border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:16px;
+    color:var(--ink-dim); font-size:15.5px;
+  }
+  .feature-list li:first-child{ padding-top:0; }
+  .feature-list li::before{
+    content:''; width:5px; height:5px; flex-shrink:0; border-radius:50%;
+    background:var(--blue); box-shadow:0 0 10px var(--blue);
+  }
+  .genre-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+  .genre-tag{
+    padding:10px 18px; border:1px solid var(--line); border-radius:2px; font-size:13px;
+    background:rgba(255,255,255,0.02); color:var(--ink-dim);
+  }
+  .genre-tag.alt{ border-color:rgba(139,59,245,0.4); color:var(--ink); background:rgba(139,59,245,0.08); }
+
+  .labels-row{
+    margin-top:90px; padding-top:50px; border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .labels-row h3{
+    font-size:12.5px; letter-spacing:0.24em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:36px;
+  }
+  .label-list{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:14px 0;
+  }
+  .label-list span{
+    font-family:var(--font-display); font-size:19px; color:var(--ink-dim);
+    padding:0 28px; position:relative;
+  }
+  .label-list span:not(:last-child)::after{
+    content:'·'; position:absolute; right:0; color:var(--ink-faint);
+  }
+
+  /* ============ CATALOG ============ */
+  .catalog{ background:var(--void-2); }
+  .catalog-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px; }
+  .ep-card{
+    border:1px solid var(--line); border-radius:6px; padding:40px 34px;
+    background:linear-gradient(160deg, rgba(139,59,245,0.1), rgba(7,4,13,0.4));
+    position:relative; overflow:hidden;
+  }
+  .ep-card::before{
+    content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px;
+    background:radial-gradient(circle, rgba(224,34,122,0.25), transparent 70%);
+  }
+  .ep-card .tag{ font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--magenta); margin-bottom:14px; display:block; }
+  .ep-card h3{ font-size:36px; text-transform:uppercase; margin-bottom:14px; }
+  .ep-card p{ color:var(--ink-dim); font-size:15px; line-height:1.7; margin-bottom:26px; }
+  .track-list{ list-style:none; }
+  .track-list li{
+    display:flex; justify-content:space-between; padding:11px 0;
+    border-bottom:1px solid var(--line); font-size:14.5px; color:var(--ink-dim);
+  }
+  .track-list li span:first-child{ color:var(--ink); }
+  .track-list li .idx{ color:var(--ink-faint); font-family:var(--font-display); margin-right:14px; }
+
+  .tracks-feat h3{
+    font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:24px;
+  }
+  .feat-track{
+    display:flex; align-items:center; gap:20px; padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  .feat-track .n{ font-family:var(--font-display); font-size:22px; color:var(--ink-faint); width:34px; }
+  .feat-track .t{ font-size:16px; color:var(--ink); flex:1; }
+  .feat-track .b{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition:all .25s ease;
+  }
+  .feat-track .b svg{ width:11px; height:11px; fill:var(--ink-dim); }
+  .feat-track:hover .b{ background:var(--magenta); border-color:var(--magenta); }
+  .feat-track:hover .b svg{ fill:#fff; }
+
+  /* ============ PERFORMANCE ============ */
+  .performance{ background:var(--void); }
+  .perf-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center; }
+  .perf-list{ list-style:none; margin-top:30px; }
+  .perf-list li{
+    padding:18px 0 18px 32px; border-bottom:1px solid var(--line);
+    position:relative; color:var(--ink-dim); font-size:16px;
+  }
+  .perf-list li::before{
+    content:''; position:absolute; left:0; top:24px; width:14px; height:1px; background:var(--blue);
+  }
+  .perf-list li strong{ color:var(--ink); font-weight:600; }
+
+  .format-table{ border:1px solid var(--line); border-radius:6px; overflow:hidden; margin-top:30px; }
+  .format-row{
+    display:grid; grid-template-columns:1fr auto; padding:20px 26px;
+    border-bottom:1px solid var(--line); align-items:center;
+  }
+  .format-row:last-child{ border-bottom:none; }
+  .format-row:hover{ background:rgba(139,59,245,0.06); }
+  .format-row .fmt-name{ font-size:15.5px; color:var(--ink); font-weight:500; }
+  .format-row .fmt-note{ font-size:12.5px; color:var(--ink-faint); margin-top:4px; }
+  .format-row .fmt-price{ font-family:var(--font-display); font-size:20px; color:var(--magenta); }
+  .perf-note{ margin-top:18px; font-size:13px; color:var(--ink-faint); line-height:1.7; }
+
+  /* ============ VISUAL GALLERY ============ */
+  .gallery{ background:var(--void-2); }
+  .gallery-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+  .g-item{ border-radius:4px; overflow:hidden; position:relative; border:1px solid var(--line); }
+  .g-item img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; filter:saturate(0.9); }
+  .g-item:hover img{ transform:scale(1.06); }
+  .g-item.tall{ grid-row:span 2; aspect-ratio:auto; }
+  .g-item.wide{ grid-column:span 2; aspect-ratio:16/9; }
+  .g-item:not(.tall):not(.wide){ aspect-ratio:1/1; }
+
+  /* ============ NEXT CHAPTER / CTA ============ */
+  .next-chapter{
+    background:linear-gradient(160deg, var(--violet-deep), var(--void) 60%);
+    position:relative; overflow:hidden;
+  }
+  .next-chapter::before{
+    content:''; position:absolute; top:-20%; right:-10%; width:600px; height:600px;
+    background:radial-gradient(circle, rgba(224,34,122,0.25), transparent 65%);
+  }
+  .next-inner{ position:relative; z-index:2; text-align:center; max-width:720px; margin:0 auto; }
+  .next-inner .eyebrow{ justify-content:center; }
+  .next-inner .eyebrow::before{ display:none; }
+  .next-inner h2{ font-size:clamp(30px, 5vw, 50px); text-transform:uppercase; line-height:1.15; }
+  .next-inner p{ margin-top:20px; color:var(--ink-dim); font-size:16.5px; line-height:1.7; }
+  .next-inner .btn{ margin-top:36px; }
+
+  /* ============ CONTACT / FOOTER ============ */
+  footer{ background:var(--void-2); border-top:1px solid var(--line); padding:90px 0 36px; }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-bottom:80px; }
+  .contact-info h2{ font-size:clamp(34px, 5vw, 54px); text-transform:uppercase; line-height:1.05; }
+  .contact-info p{ margin-top:20px; color:var(--ink-dim); font-size:16px; line-height:1.7; max-width:440px; }
+  .contact-channels{ margin-top:34px; display:flex; flex-direction:column; gap:16px; }
+  .channel{
+    display:flex; align-items:center; gap:16px; padding:16px 20px;
+    border:1px solid var(--line); border-radius:4px; font-size:15px;
+    transition:all .25s ease;
+  }
+  .channel:hover{ border-color:var(--magenta); background:rgba(224,34,122,0.06); transform:translateX(4px); }
+  .channel .ico{
+    width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.04);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .channel .ico svg{ width:16px; height:16px; fill:var(--ink-dim); }
+  .channel .meta{ display:flex; flex-direction:column; }
+  .channel .meta .role{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
+  .channel .meta .val{ color:var(--ink); font-weight:500; }
+
+  .socials-col h3{
+    font-size:12.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:26px;
+  }
+  .social-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .social-link{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 22px; border:1px solid var(--line); border-radius:4px;
+    font-size:14.5px; color:var(--ink-dim);
+    transition:all .25s ease;
+  }
+  .social-link:hover{ border-color:var(--blue); color:var(--ink); background:rgba(59,109,240,0.08); }
+  .social-link svg{ width:14px; height:14px; fill:var(--ink-faint); transition:transform .25s ease; }
+  .social-link:hover svg{ transform:translate(3px,-3px); fill:var(--ink); }
+
+  .footer-bottom{
+    border-top:1px solid var(--line); padding-top:30px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-bottom img{ height:26px; opacity:0.85; }
+  .footer-bottom .credit{ font-size:12.5px; color:var(--ink-faint); }
+  .footer-bottom .credit a{ color:var(--ink-dim); }
+
+  /* ============ REVEAL ANIMS ============ */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:980px){
+    .bio-grid, .identity-grid, .catalog-grid, .perf-grid, .contact-grid{ grid-template-columns:1fr; }
+    .bio-grid{ flex-direction:column-reverse; display:flex; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .g-item.wide{ grid-column:span 2; }
+    .stats{ grid-template-columns:1fr 1fr; }
+  }
+
+  @media (max-width:720px){
+    .wrap{ padding:0 22px; }
+    nav{ padding:18px 22px; }
+    nav .links{
+      position:fixed; top:0; right:0; height:100vh; width:78vw; max-width:320px;
+      background:var(--surface); flex-direction:column; justify-content:center; align-items:flex-start;
+      padding:0 40px; gap:30px; transform:translateX(100%); transition:transform .4s cubic-bezier(.2,.8,.2,1);
+      z-index:60; border-left:1px solid var(--line);
+    }
+    nav .links.open{ transform:translateX(0); }
+    nav .nav-cta{ display:none; }
+    .nav-toggle{
+      display:flex; flex-direction:column; gap:5px; width:26px; z-index:70; cursor:pointer; background:none; border:none;
+    }
+    .nav-toggle span{ height:1.5px; background:var(--ink); width:100%; transition:all .3s ease; }
+    .nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2){ opacity:0; }
+    .nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+    section{ padding:90px 0; }
+    .hero-content{ padding-bottom:70px; }
+    .gallery-grid{ grid-template-columns:1fr 1fr; }
+    .g-item.tall{ grid-row:span 1; aspect-ratio:1/1; }
+    .social-grid{ grid-template-columns:1fr; }
+    .format-row{ grid-template-columns:1fr; gap:8px; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <img src="assets/logo-branca.png" alt="Ancestral Culture Live">
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="links" id="navLinks">
+    <a href="#bio">Bio</a>
+    <a href="#identidade">Identidade Sonora</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#performance">Performance</a>
+    <a href="#contato" class="nav-cta">Booking</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <svg class="hero-rune" viewBox="0 0 200 200" fill="none">
+    <circle cx="100" cy="100" r="95" stroke="url(#g1)" stroke-width="1"/>
+    <circle cx="100" cy="100" r="72" stroke="url(#g1)" stroke-width="1" stroke-dasharray="4 8"/>
+    <path d="M100 5 L100 30 M100 170 L100 195 M5 100 L30 100 M170 100 L195 100" stroke="url(#g1)" stroke-width="1"/>
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="200" y2="200"><stop stop-color="#8b3bf5"/><stop offset="1" stop-color="#e0227a"/></linearGradient></defs>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tagline-eyebrow"><span class="dot"></span> Electronic Press Kit · 2026</div>
+    <h1><span>Ancestral</span><span>Culture Live</span></h1>
+    <p class="hero-sub">Darkpsy, Forest Psytrance e Experimental conduzidos por Gustavo Ambrosio. Frequências com peso e intenção — um estado alterado que não precisa de explicação, só de entrega.</p>
+    <div class="hero-genres">
+      <span class="pill">Darkpsy</span>
+      <span class="pill">Forest Psytrance</span>
+      <span class="pill">Experimental</span>
+      <span class="pill">Ritual Psychedelic</span>
+      <span class="pill">Tribal Psy</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#contato" class="btn btn-primary">Contato &amp; Booking</a>
+      <a href="#catalogo" class="btn btn-ghost">Ouvir o Catálogo</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Role</span><div class="line"></div></div>
+</header>
+
+<!-- ============ BIO ============ -->
+<section class="bio" id="bio">
+  <div class="wrap">
+    <div class="bio-grid">
+      <div class="bio-text reveal">
+        <div class="eyebrow">Perfil Artístico</div>
+        <h2 class="section-head" style="margin-bottom:30px;"><span style="font-size:clamp(30px,4vw,46px); text-transform:uppercase; font-family:var(--font-display); line-height:1.1; display:block;">Som de ritual.<br>Som de viagem.</span></h2>
+        <p>Ancestral Culture Live é um projeto de música eletrônica psicodélica idealizado pelo produtor <strong>Gustavo Ambrosio</strong>. A proposta une darkpsy, psytrance experimental e atmosferas ritualísticas numa experiência sonora densa, hipnótica e imersiva.</p>
+        <p>A ancestralidade é o fio condutor: passado e presente no mesmo pulso, cultura psicodélica e espiritualidade sem hierarquia. Cada camada sonora é construída para conduzir o público a um estado de entrega, percepção e introspecção.</p>
+        <p>O resultado é uma jornada de pista com frequências pesadas, linhas hipnóticas, ritmos orgânicos e texturas experimentais — um ambiente próprio, quase sagrado, dentro do caos astral.</p>
+        <div class="bio-quote">"Ancestral Culture não é apenas música: é jornada sonora, ritual e deslocamento sensorial."</div>
+      </div>
+      <div class="reveal">
+        <div class="photo-frame">
+          <img src="assets/foto3.jpg" alt="Ancestral Culture Live — performance ao vivo">
+        </div>
+        <div class="stats">
+          <div class="stat-card"><span class="num">2026</span><span class="label">EPK Atualizado</span></div>
+          <div class="stat-card"><span class="num">BR</span><span class="label">Brasil · Live Act</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IDENTIDADE SONORA ============ -->
+<section class="identity" id="identidade">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Identidade Sonora</div>
+      <h2>Frequência, ritual<br>e pista</h2>
+      <p>A música combina ancestralidade, tecnologia de produção e experimentação psicodélica para criar uma assinatura própria.</p>
+    </div>
+
+    <div class="identity-grid">
+      <div class="id-col reveal">
+        <h3>Assinatura Sonora</h3>
+        <ul class="feature-list">
+          <li>Atmosferas profundas de floresta</li>
+          <li>Texturas psicodélicas densas</li>
+          <li>Ritmos tribais e orgânicos</li>
+          <li>Design sonoro experimental</li>
+          <li>Estruturas de alta intensidade</li>
+        </ul>
+      </div>
+      <div class="id-col reveal">
+        <h3>Conceito</h3>
+        <p style="color:var(--ink-dim); font-size:15.5px; line-height:1.8; margin-bottom:24px;">A cultura psicodélica contemporânea é tratada como continuidade de práticas ritualísticas: uma ponte entre memória ancestral, mitologia, espiritualidade indígena e simbologias afro-brasileiras.</p>
+        <div class="genre-tags">
+          <span class="genre-tag alt">Culturas Ancestrais</span>
+          <span class="genre-tag alt">Espiritualidade Indígena</span>
+          <span class="genre-tag alt">Mitologia</span>
+          <span class="genre-tag alt">Simbologias Afro-Brasileiras</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="labels-row reveal">
+      <h3>Selos &amp; Coletivos Associados</h3>
+      <div class="label-list">
+        <span>Obsidian Records</span>
+        <span>Brejo Music Records</span>
+        <span>The Universe Frequency Rec</span>
+        <span>Coletivo Darklab</span>
+        <span>Illuminati Music Records</span>
+        <span>Xibalba Records</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATÁLOGO ============ -->
+<section class="catalog" id="catalogo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Trajetória &amp; Lançamentos</div>
+      <h2>Catálogo em<br>destaque</h2>
+    </div>
+
+    <div class="catalog-grid">
+      <div class="ep-card reveal">
+        <span class="tag">EP · Conceito Ancestral</span>
+        <h3>Tupuna</h3>
+        <p>Um trabalho voltado à ancestralidade, à conexão espiritual e às narrativas sonoras de origem. A palavra Tupuna representa a herança ancestral e a ligação espiritual com os antepassados.</p>
+        <ul class="track-list">
+          <li><span><span class="idx">01</span>Primeiro Orixá</span></li>
+          <li><span><span class="idx">02</span>Salve Ogum</span></li>
+          <li><span><span class="idx">03</span>Urantia</span></li>
+          <li><span><span class="idx">04</span>Contos de Ogum</span></li>
+        </ul>
+      </div>
+
+      <div class="tracks-feat reveal">
+        <h3>Faixas em Destaque</h3>
+        <div class="feat-track">
+          <span class="n">01</span><span class="t">Hyper Design</span>
+          <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="feat-track">
+          <span class="n">02</span><span class="t">Estresse Criativo</span>
+          <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="feat-track">
+          <span class="n">03</span><span class="t">Semente do Brejo</span>
+          <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="feat-track">
+          <span class="n">04</span><span class="t">Spectral Fluid</span>
+          <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="feat-track">
+          <span class="n">05</span><span class="t">Sun &amp; Moon</span>
+          <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="feat-track" style="border-bottom:none;">
+          <span class="n">06</span><span class="t">Kundalini Times</span>
+          <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <a href="https://sndo.ffm.to/rkm7rk5" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:30px;">Ouvir o Lançamento</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERFORMANCE ============ -->
+<section class="performance" id="performance">
+  <div class="wrap">
+    <div class="perf-grid">
+      <div class="reveal">
+        <div class="eyebrow">Performance</div>
+        <h2 style="font-size:clamp(30px,4vw,46px); text-transform:uppercase; line-height:1.1;">Live Act —<br>uma experiência<br>de pista</h2>
+        <p style="color:var(--ink-dim); font-size:16px; line-height:1.75; margin-top:20px;">Os sets são desenvolvidos para pistas psicodélicas, festivais e ambientes imersivos. A apresentação constrói energia de forma progressiva e combina execução autoral, manipulação sonora em tempo real e transições atmosféricas.</p>
+        <ul class="perf-list">
+          <li><strong>Live act</strong> psicodélico e autoral</li>
+          <li><strong>Manipulação sonora</strong> em tempo real</li>
+          <li><strong>Transições</strong> ritualísticas e atmosféricas</li>
+          <li><strong>Construção progressiva</strong> de energia</li>
+          <li><strong>Formato adaptável</strong> a diferentes durações</li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <div class="photo-frame" style="aspect-ratio:4/3; margin-bottom:36px;">
+          <img src="assets/foto1.jpg" alt="Ancestral Culture Live — DJ set">
+        </div>
+        <div class="format-table">
+          <div class="format-row">
+            <div><div class="fmt-name">Live Act — 2 horas</div><div class="fmt-note">Set padrão de pista</div></div>
+            <div class="fmt-price">R$ 500</div>
+          </div>
+          <div class="format-row">
+            <div><div class="fmt-name">Live Act — 4 horas</div><div class="fmt-note">Construção estendida de energia</div></div>
+            <div class="fmt-price">R$ 750</div>
+          </div>
+          <div class="format-row">
+            <div><div class="fmt-name">Live Act — 6 horas</div><div class="fmt-note">Jornada completa</div></div>
+            <div class="fmt-price">R$ 1.000</div>
+          </div>
+        </div>
+        <p class="perf-note">Valores não incluem custo de logística. Todos os valores são negociáveis conforme escopo do evento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Atmosfera Visual</div>
+      <h2>Registros de pista</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item tall"><img src="assets/foto1.jpg" alt="Ancestral Culture Live — registro 1"></div>
+      <div class="g-item"><img src="assets/foto3.jpg" alt="Ancestral Culture Live — registro 2"></div>
+      <div class="g-item wide"><img src="assets/hero.jpg" alt="Ancestral Culture Live — performance"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT CHAPTER ============ -->
+<section class="next-chapter">
+  <div class="wrap next-inner reveal">
+    <div class="eyebrow">Próximo Capítulo</div>
+    <h2>Novo álbum colaborativo</h2>
+    <p>Projeto digital em desenvolvimento, orientado à colaboração internacional, à produção remota e ao intercâmbio técnico e artístico entre Brasil e Portugal.</p>
+    <a href="#contato" class="btn btn-primary">Falar sobre o projeto</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer id="contato">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="eyebrow">Contato Profissional</div>
+        <h2>Vamos<br>construir o<br>ritual juntos</h2>
+        <p>Disponível para festivais, eventos imersivos, pistas psicodélicas e colaborações internacionais.</p>
+        <div class="contact-channels">
+          <a href="mailto:ancestralculturemusic@gmail.com" class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 2.24l-7.4 5.55a1 1 0 01-1.2 0L4 8.24V18h16V8.24z"/></svg></span>
+            <span class="meta"><span class="role">Booking &amp; Management</span><span class="val">ancestralculturemusic@gmail.com</span></span>
+          </a>
+          <a href="https://www.instagram.com/ancestralculturemusic/" target="_blank" rel="noopener" class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.51.5.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43C22 8.94 22 9.3 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 01-1.16 1.77 4.9 4.9 0 01-1.77 1.16c-.64.25-1.37.42-2.43.47C15.06 22 14.7 22 12 22s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 01-1.77-1.16 4.9 4.9 0 01-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2 15.06 2 14.7 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 011.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg></span>
+            <span class="meta"><span class="role">Instagram / Mensagens</span><span class="val">@ancestralculturemusic</span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="socials-col reveal">
+        <h3>Plataformas &amp; Redes</h3>
+        <div class="social-grid">
+          <a href="https://open.spotify.com/artist/28rodQPZzrUTZjq0WJBozP" target="_blank" rel="noopener" class="social-link">Spotify <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="https://www.youtube.com/@ancestralculturelive" target="_blank" rel="noopener" class="social-link">YouTube <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="https://ancestralculture.bandcamp.com/" target="_blank" rel="noopener" class="social-link">Bandcamp <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="https://music.apple.com/us/artist/ancestral-culture/1585202404" target="_blank" rel="noopener" class="social-link">Apple Music <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="https://listen.tidal.com/artist/28348690" target="_blank" rel="noopener" class="social-link">Tidal <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="https://www.instagram.com/ancestralculturemusic/" target="_blank" rel="noopener" class="social-link">Instagram <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="https://www.facebook.com/ancestralculturelive" target="_blank" rel="noopener" class="social-link">Facebook <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+          <a href="mailto:ancestralculturemusic@gmail.com" class="social-link">E-mail <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <img src="assets/logo-2cores.png" alt="Ancestral Culture">
+      <span class="credit">© 2026 Ancestral Culture Live — Gustavo Ambrosio. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

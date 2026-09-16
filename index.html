@@ -297,6 +297,17 @@
   .labels-row h3{
     font-size:12.5px; letter-spacing:0.24em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:36px;
   }
+  .label-logos{
+    display:flex; justify-content:center; align-items:center; gap:24px; margin-bottom:32px; flex-wrap:wrap;
+  }
+  .label-logo-card{
+    background:rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:6px;
+    padding:10px 20px; display:flex; align-items:center; gap:14px;
+    transition:all .3s ease;
+  }
+  .label-logo-card:hover{ border-color:var(--magenta); transform:translateY(-2px); background:rgba(224,34,122,0.05); }
+  .label-logo-card img{ height:38px; width:auto; max-width:110px; object-fit:contain; border-radius:3px; }
+  .label-logo-card span{ font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-dim); font-weight:500; }
   .label-list{
     display:flex; flex-wrap:wrap; justify-content:center; gap:14px 0;
   }
@@ -501,10 +512,12 @@
   </button>
   <div class="links" id="navLinks">
     <a href="#bio">Bio</a>
-    <a href="#identidade">Identidade Sonora</a>
+    <a href="#identidade">Identidade</a>
     <a href="#catalogo">Catálogo</a>
     <a href="#musica">Música</a>
     <a href="#performance">Performance</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#video">Vídeo</a>
     <a href="#contato" class="nav-cta">Booking</a>
   </div>
 </nav>
@@ -525,15 +538,16 @@
     <h1><span>Ancestral</span><span>Culture Live</span></h1>
     <p class="hero-sub">Darkpsy, Forest Psytrance e Experimental conduzidos por Gustavo Ambrosio. Frequências com peso e intenção — um estado alterado que não precisa de explicação, só de entrega.</p>
     <div class="hero-genres">
+      <span class="pill" style="border-color:var(--magenta); color:#fff; background:rgba(224,34,122,0.18); font-weight:600;">145 — 240 BPM</span>
       <span class="pill">Darkpsy</span>
       <span class="pill">Forest Psytrance</span>
       <span class="pill">Experimental</span>
       <span class="pill">Ritual Psychedelic</span>
-      <span class="pill">Tribal Psy</span>
+      <span class="pill">Live Act · Ableton &amp; Hardware</span>
     </div>
     <div class="hero-actions">
       <a href="#contato" class="btn btn-primary">Contato &amp; Booking</a>
-      <a href="#catalogo" class="btn btn-ghost">Ouvir o Catálogo</a>
+      <a href="#musica" class="btn btn-ghost">Ouvir Tracks</a>
     </div>
   </div>
 
@@ -545,12 +559,20 @@
   <div class="wrap">
     <div class="bio-grid">
       <div class="bio-text reveal">
-        <div class="eyebrow">Perfil Artístico</div>
+        <div class="eyebrow">Perfil Artístico · Artist Profile</div>
         <h2 class="section-head" style="margin-bottom:30px;"><span style="font-size:clamp(30px,4vw,46px); text-transform:uppercase; font-family:var(--font-display); line-height:1.1; display:block;">Som de ritual.<br>Som de viagem.</span></h2>
         <p>Ancestral Culture Live é um projeto de música eletrônica psicodélica idealizado pelo produtor <strong>Gustavo Ambrosio</strong>. A proposta une darkpsy, psytrance experimental e atmosferas ritualísticas numa experiência sonora densa, hipnótica e imersiva.</p>
         <p>A ancestralidade é o fio condutor: passado e presente no mesmo pulso, cultura psicodélica e espiritualidade sem hierarquia. Cada camada sonora é construída para conduzir o público a um estado de entrega, percepção e introspecção.</p>
         <p>O resultado é uma jornada de pista com frequências pesadas, linhas hipnóticas, ritmos orgânicos e texturas experimentais — um ambiente próprio, quase sagrado, dentro do caos astral.</p>
         <div class="bio-quote">"Ancestral Culture não é apenas música: é jornada sonora, ritual e deslocamento sensorial."</div>
+
+        <!-- English Bio for International Bookers -->
+        <div style="margin-top:28px; padding:20px 24px; border:1px solid var(--line); border-radius:4px; background:rgba(255,255,255,0.015);">
+          <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--magenta); margin-bottom:8px; font-weight:600;">International Promoters · Bio (EN)</div>
+          <p style="color:var(--ink-dim); font-size:14px; line-height:1.75; margin:0;">
+            <strong>Ancestral Culture</strong> is a high-octane Brazilian Live Act blending deep Forest Psytrance, Darkpsy, and organic cyber-shamanic soundscapes (145–240 BPM). Conceived by producer <strong>Gustavo Ambrosio</strong>, the project bridges ancient ritualism and futuristic synthesizer engineering into an intense, introspective journey tailored for peak night and sunrise dancefloors.
+          </p>
+        </div>
       </div>
       <div class="reveal">
         <div class="photo-frame">
@@ -601,6 +623,18 @@
 
     <div class="labels-row reveal">
       <h3>Selos &amp; Coletivos Associados · <span style="color:var(--ink-faint);font-size:11px;letter-spacing:0.12em;">Labels &amp; Collectives</span></h3>
+      
+      <div class="label-logos">
+        <div class="label-logo-card">
+          <img src="assets/brejo.jpg" alt="Brejo Music Records">
+          <span>Brejo Music Records</span>
+        </div>
+        <div class="label-logo-card">
+          <img src="assets/obsidian.png" alt="Obsidian Records">
+          <span>Obsidian Records</span>
+        </div>
+      </div>
+
       <div class="label-list">
         <span>Obsidian Records</span>
         <span>Brejo Music Records</span>
@@ -661,7 +695,10 @@
           <span class="n">06</span><span class="t">Kundalini Times</span>
           <span class="b"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <a href="https://sndo.ffm.to/rkm7rk5" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:30px;">Ouvir o Lançamento</a>
+        <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="https://open.spotify.com/artist/28rodQPZzrUTZjq0WJBozP" target="_blank" rel="noopener" class="btn btn-primary">Ouvir no Spotify</a>
+          <a href="https://ancestralculture.bandcamp.com/" target="_blank" rel="noopener" class="btn btn-ghost">Catálogo no Bandcamp</a>
+        </div>
       </div>
     </div>
   </div>
@@ -736,16 +773,53 @@
 </section>
 
 <!-- ============ GALLERY ============ -->
-<section class="gallery">
+<section class="gallery" id="galeria">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">Atmosfera Visual</div>
+      <div class="eyebrow">Atmosfera Visual · Photo Gallery</div>
       <h2>Registros de pista</h2>
+      <p>Momentos capturados durante os rituais noturnos e festivais psicodélicos. Moments captured through nightly rituals and psychedelic gatherings.</p>
     </div>
     <div class="gallery-grid reveal">
-      <div class="g-item tall"><img src="assets/foto1.jpg" alt="Ancestral Culture Live — registro 1"></div>
-      <div class="g-item"><img src="assets/foto3.jpg" alt="Ancestral Culture Live — registro 2"></div>
-      <div class="g-item wide"><img src="assets/hero.jpg" alt="Ancestral Culture Live — performance"></div>
+      <div class="g-item tall"><img src="assets/live1.jpg" alt="Ancestral Culture Live — setup e palco"></div>
+      <div class="g-item"><img src="assets/portrait.jpg" alt="Gustavo Ambrosio — Ancestral Culture"></div>
+      <div class="g-item"><img src="assets/foto3.jpg" alt="Ancestral Culture Live — performance"></div>
+      <div class="g-item"><img src="assets/live2.jpg" alt="Ancestral Culture Live — ritual de pista"></div>
+      <div class="g-item"><img src="assets/foto1.jpg" alt="Ancestral Culture Live — live act"></div>
+      <div class="g-item wide"><img src="assets/hero.jpg" alt="Ancestral Culture Live — atmosfera de festival"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO & LIVE RITUAL ============ -->
+<section class="video-section" id="video" style="background:var(--void); padding:100px 0; border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Vídeos de Pista · Live Ritual Clips</div>
+      <h2>A Força da Pista</h2>
+      <p>Registros de apresentações ao vivo: manipulação em tempo real, pressão psicodélica e conexão coletiva no ritual noturno.</p>
+    </div>
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; max-width:980px;">
+      <div style="background:var(--surface); border:1px solid var(--line); border-radius:6px; overflow:hidden;">
+        <video controls playsinline preload="metadata" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; background:#000;">
+          <source src="assets/live_ritual.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div style="padding:14px 18px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:13px; color:var(--ink); font-weight:500;">Live Ritual · Dancefloor Session</span>
+          <span style="font-size:11px; letter-spacing:0.1em; color:var(--magenta); text-transform:uppercase;">Darkpsy / Forest</span>
+        </div>
+      </div>
+      <div style="background:var(--surface); border:1px solid var(--line); border-radius:6px; overflow:hidden;">
+        <video controls playsinline preload="metadata" style="width:100%; height:auto; display:block; max-height:480px; object-fit:cover; background:#000;">
+          <source src="assets/live_ritual_2.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos HTML5.
+        </video>
+        <div style="padding:14px 18px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:13px; color:var(--ink); font-weight:500;">Live Act · Modulação &amp; Sintetizadores</span>
+          <span style="font-size:11px; letter-spacing:0.1em; color:var(--blue); text-transform:uppercase;">150–200 BPM</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -777,6 +851,15 @@
             <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.16.51.5.9 1.11 1.16 1.77.25.64.42 1.37.47 2.43C22 8.94 22 9.3 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 01-1.16 1.77 4.9 4.9 0 01-1.77 1.16c-.64.25-1.37.42-2.43.47C15.06 22 14.7 22 12 22s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 01-1.77-1.16 4.9 4.9 0 01-1.16-1.77c-.25-.64-.42-1.37-.47-2.43C2 15.06 2 14.7 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.16-1.77a4.9 4.9 0 011.77-1.16c.64-.25 1.37-.42 2.43-.47C8.94 2 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg></span>
             <span class="meta"><span class="role">Instagram / Mensagens</span><span class="val">@ancestralculturemusic</span></span>
           </a>
+        </div>
+
+        <div style="margin-top:28px; padding:20px 22px; border:1px dashed rgba(180,150,255,0.25); border-radius:4px; background:rgba(139,59,245,0.03);">
+          <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--magenta); font-weight:600; margin-bottom:8px;">Material para Promotores &amp; Flyers</div>
+          <p style="font-size:13px; color:var(--ink-dim); line-height:1.6; margin:0 0 14px 0;">Logos oficiais em vetor/PNG transparente e fotos em alta definição prontas para divulgação e cartazes de festivais.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="assets/logo-branca.png" download class="btn btn-ghost" style="padding:8px 16px; font-size:11px;">Baixar Logo PNG</a>
+            <a href="assets/live1.jpg" download class="btn btn-ghost" style="padding:8px 16px; font-size:11px;">Baixar Foto Press</a>
+          </div>
         </div>
       </div>
 
